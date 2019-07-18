@@ -1,0 +1,3 @@
+for i in `find /opt/zimbra -maxdepth 1 -type d`; \
+do export sum=`find $i -printf %k"\n" | awk '{  sum += $1 } END { print sum kb }'`; \
+echo -e "$sum kb\t$i"; export sum=; done | sort -rn | head -n 20
